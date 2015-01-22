@@ -12,8 +12,6 @@ let remotePort = 80
 let remoteEP = new IPEndPoint (remoteIP, remotePort)
 let localPort = 15001
 
-let timeout = new TimeSpan (0, 1, 0)
+let timeout = new TimeSpan (0, 0, 10)
 
-let log s = printfn "%s" s
-
-Daemon.start timeout log localPort remoteEP
+Daemon.start timeout localPort remoteEP

@@ -2,13 +2,13 @@
 
 open System
 
-type TransferResult<'a> = OK of 'a | Error of string
+type TransferResult<'a> = OK of 'a | Closed
 
 type TransferBuilder() = 
     member this.Bind (x, f) = 
         match x with
         | OK x -> f x
-        | Error e -> Error e
+        | Closed -> Closed
 
     member this.Delay f = f ()
 
